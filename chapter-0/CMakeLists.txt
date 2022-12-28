@@ -16,7 +16,7 @@ target_include_directories(chapter_0 PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 target_link_libraries(chapter_0
     Vulkan::Vulkan
     SDL2::SDL2
-    vkbootstrap
+    vk-bootstrap::vk-bootstrap
     unofficial::vulkan-memory-allocator::vulkan-memory-allocator
     glm::glm
     tinyobjloader::tinyobjloader
