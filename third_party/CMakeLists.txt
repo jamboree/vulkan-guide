@@ -7,3 +7,5 @@ target_sources(vkbootstrap PRIVATE
 
 target_include_directories(vkbootstrap PUBLIC vkbootstrap)
 target_link_libraries(vkbootstrap PUBLIC Vulkan::Vulkan $<$<BOOL:UNIX>:${CMAKE_DL_LIBS}>)
+
+add_library(vk-bootstrap::vk-bootstrap ALIAS vkbootstrap)
