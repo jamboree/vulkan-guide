@@ -142,8 +142,8 @@ void VulkanEngine::draw() {
 
     // prepare the submission to the queue.
     // we want to wait on the _presentSemaphore, as that semaphore is signaled
-    // when the swapchain is ready we will signal the _renderSemaphore, to signal
-    // that rendering has finished
+    // when the swapchain is ready we will signal the _renderSemaphore, to
+    // signal that rendering has finished
 
     VkSubmitInfo submit = vkinit::submit_info(&cmd);
     VkPipelineStageFlags waitStage =
