@@ -49,7 +49,6 @@ struct DeletionQueue
 };
 
 struct MeshPushConstants {
-	glm::vec4 data;
 	glm::mat4 render_matrix;
 };
 

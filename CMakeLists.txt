@@ -13,8 +13,8 @@ find_package(imgui CONFIG REQUIRED)
 find_package(unofficial-vulkan-memory-allocator CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(tinyobjloader CONFIG REQUIRED)
-find_package(vk-bootstrap CONFIG REQUIRED)
-#add_subdirectory(third_party)
+#find_package(vk-bootstrap CONFIG REQUIRED)
+add_subdirectory(third_party)
 
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
 
