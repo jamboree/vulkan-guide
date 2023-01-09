@@ -15,6 +15,13 @@ set_property(TARGET chapter_4 PROPERTY VS_DEBUGGER_WORKING_DIRECTORY $<TARGET_FI
 
 target_include_directories(chapter_4 PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}")
 
-target_link_libraries(chapter_4 vkbootstrap vma glm tinyobjloader imgui stb_image)
-
-target_link_libraries(chapter_4 Vulkan::Vulkan sdl2)
+target_link_libraries(chapter_4
+    Vulkan::Vulkan
+    SDL2::SDL2
+    vk-bootstrap::vk-bootstrap
+    unofficial::vulkan-memory-allocator::vulkan-memory-allocator
+    glm::glm
+    tinyobjloader::tinyobjloader
+    imgui::imgui
+    ${STB_INCLUDE_DIRS}
+    )
