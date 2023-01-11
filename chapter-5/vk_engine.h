@@ -49,12 +49,6 @@ struct DeletionQueue
     }
 };
 
-struct MeshPushConstants {
-	glm::vec4 data;
-	glm::mat4 render_matrix;
-};
-
-
 struct Material {
 	VkDescriptorSet textureSet{VK_NULL_HANDLE};
 	VkPipeline pipeline;

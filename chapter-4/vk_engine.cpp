@@ -558,18 +558,6 @@ void VulkanEngine::init_pipelines() {
     VkPipelineLayoutCreateInfo mesh_pipeline_layout_info =
         vkinit::pipeline_layout_create_info();
 
-    // setup push constants
-    VkPushConstantRange push_constant;
-    // offset 0
-    push_constant.offset = 0;
-    // size of a MeshPushConstant struct
-    push_constant.size = sizeof(MeshPushConstants);
-    // for the vertex shader
-    push_constant.stageFlags = VK_SHADER_STAGE_VERTEX_BIT;
-
-    mesh_pipeline_layout_info.pPushConstantRanges = &push_constant;
-    mesh_pipeline_layout_info.pushConstantRangeCount = 1;
-
     VkDescriptorSetLayout setLayouts[] = {_globalSetLayout, _objectSetLayout};
 
     mesh_pipeline_layout_info.setLayoutCount = 2;
@@ -924,18 +912,6 @@ void VulkanEngine::draw_objects(VkCommandBuffer cmd, RenderObject* first,
                                     &get_current_frame().objectDescriptor, 0,
                                     nullptr);
         }
-
-        glm::mat4 model = object.transformMatrix;
-        // final render matrix, that we are calculating on the cpu
-        glm::mat4 mesh_matrix = model;
-
-        MeshPushConstants constants;
-        constants.render_matrix = mesh_matrix;
-
-        // upload the mesh to the gpu via pushconstants
-        vkCmdPushConstants(cmd, object.material->pipelineLayout,
-                           VK_SHADER_STAGE_VERTEX_BIT, 0,
-                           sizeof(MeshPushConstants), &constants);
 
         // only bind the mesh if its a different one from last bind
         if (object.mesh != lastMesh) {
